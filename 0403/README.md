@@ -16,14 +16,19 @@ export OPENAI_API_KEY="sk-...여기에_본인의_API_키..."
 
 #1. 일반적인 SSH 로그인 실패 (보안 테스트)
 echo -e "Apr 23 10:01:00 ubuntu sshd[1234]: Failed password for root from 192.168.0.10 port 45123 ssh2" > test1.log
+
 #2. CPU soft lockup (시스템 오류)
 echo -e "Apr 23 10:02:10 ubuntu kernel: [12345.678901] CPU0: soft lockup - CPU#0 stuck for 22s! [kworker/0:1:1234]" > test2.log
+
 #3. 웹 서버 실행 실패 (서비스 장애)
 echo -e "Apr 23 10:03:21 ubuntu apache2[5678]: AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message" > test3.log
+
 #4. Nginx 설정 오류 (구문 에러)
 echo -e "Apr 23 10:04:01 ubuntu nginx[9123]: nginx: [emerg] unexpected \"}\" in /etc/nginx/sites-enabled/default:45" > test4.log
+
 #5. 디스크 공간 부족 (운영 이슈)
 echo -e "Apr 23 10:05:12 ubuntu systemd[1]: Starting Daily apt download activities...\nApr 23 10:05:12 ubuntu systemd[1]: apt-daily.service: Failed to run 'start-pre' task: No space left on 
 device" > test5.log
+
 #6. 정상 작동 로그 (비교용)
 echo -e "Apr 23 10:06:30 ubuntu systemd[1]: Started nginx - high performance web server.\nApr 23 10:06:30 ubuntu systemd[1]: Reached target Multi-User System." > test6.log
